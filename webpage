@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeaksAI Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .game {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .game:hover {
+            transform: scale(1.05);
+        }
+        .game img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .game-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PeaksAI Games</h1>
+    <div class="game-container">
+        <div class="game" onclick="window.location.href='https://perfectcirclepeaks.netlify.app/'">
+            <img src="perfect_circle_thumbnail.png" alt="Perfect Circle Game">
+            <div class="game-title">Perfect Circle</div>
+        </div>
+        <!-- Add more games here -->
+    </div>
+</body>
+</html>
