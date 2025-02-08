@@ -6,53 +6,114 @@
     <title>PeaksAI Games</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            background-color: #f9f9f9;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            color: white;
         }
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .search-box {
+            margin: 20px;
+            padding: 12px;
+            width: 60%;
+            max-width: 400px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .game-container {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 40px;
             justify-content: center;
-            gap: 15px;
         }
         .game {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 200px;
-            padding: 10px;
+            background: linear-gradient(135deg, #ff8c00, #ff2e63);
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            padding: 20px;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            color: white;
+            font-weight: bold;
         }
         .game:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
         .game img {
             width: 100%;
-            border-radius: 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .game-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 10px;
+            font-size: 22px;
+            margin-top: 15px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
-    <h1>PeaksAI Games</h1>
-    <div class="game-container">
-        <div class="game" onclick="window.location.href='https://perfectcirclepeaks.netlify.app/'">
-            <img src="perfect_circle_thumbnail.png" alt="Perfect Circle Game">
-            <div class="game-title">Perfect Circle</div>
-        </div>
-        <!-- Add more games here -->
+    <div class="navbar">PeaksAI Games</div>
+    <input type="text" class="search-box" id="search" placeholder="Search games..." onkeyup="filterGames()">
+    <div class="game-container" id="gameContainer">
+        <!-- Games will be inserted dynamically -->
     </div>
+    <script>
+        const games = [
+            { title: "Perfect Circle", img: "perfect_circle_thumbnail.png", link: "file:///C:/Users/User/Downloads/index%20(34).html" },
+            { title: "Spacebar Clicker", img: "spacebar_clicker_thumbnail.png", link: "file:///C:/Users/User/Downloads/spacebarclick%20(1).html" },
+            { title: "Stimulation Clicker", img: "stimulation_clicker_thumbnail.png", link: "https://stimulationclicker.netlify.app/" }
+        ];
+        
+        function loadGames() {
+            const container = document.getElementById('gameContainer');
+            container.innerHTML = "";
+            games.forEach(game => {
+                const gameElement = document.createElement("div");
+                gameElement.classList.add("game");
+                gameElement.innerHTML = `
+                    <img src="${game.img}" alt="${game.title}">
+                    <div class="game-title">${game.title}</div>
+                `;
+                gameElement.onclick = () => window.location.href = game.link;
+                container.appendChild(gameElement);
+            });
+        }
+
+        function filterGames() {
+            const query = document.getElementById("search").value.toLowerCase();
+            const filtered = games.filter(game => game.title.toLowerCase().includes(query));
+            document.getElementById("gameContainer").innerHTML = "";
+            filtered.forEach(game => {
+                const gameElement = document.createElement("div");
+                gameElement.classList.add("game");
+                gameElement.innerHTML = `
+                    <img src="${game.img}" alt="${game.title}">
+                    <div class="game-title">${game.title}</div>
+                `;
+                gameElement.onclick = () => window.location.href = game.link;
+                document.getElementById("gameContainer").appendChild(gameElement);
+            });
+        }
+        
+        loadGames();
+    </script>
 </body>
 </html>
