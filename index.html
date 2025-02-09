@@ -5,7 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PeaksAI Games</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Bright gradient background */
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 15px 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff6f61; /* Bright coral color */
+        }
+
+        .search-box {
+            padding: 10px 20px;
+            width: 300px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box::placeholder {
+            color: #999; /* Light gray placeholder */
+        }
+
+        /* Game Container */
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Game Cards */
+        .game {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .game:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .game img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 3px solid #ff6f61; /* Bright coral color */
+        }
+
+        .game-title {
+            font-size: 18px;
+            font-weight: 600;
+            padding: 15px;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Advanced Features */
+        .game::after {
+            content: "PLAY NOW";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ff6f61; /* Bright coral color */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .game:hover::after {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
@@ -16,20 +118,21 @@
         <!-- Games will be inserted dynamically -->
     </div>
     <script>
+        // Array of games
         const games = [
-            { title: "Perfect Circle", img: "perfect_circle_thumbnail.png", link: "index(34).html" },
-            { title: "Spacebar Clicker", img: "spacebar_clicker_thumbnail.png", link: "spacebarclick(1).html" },
-            { title: "Stimulation Clicker", img: "stimulation_clicker_thumbnail.png", link: "https://stimulationclicker.netlify.app/" }
+            { title: "Perfect Circle", img: "perfect_circle_thumbnail.png", link: "https://perfectcircle.netlify.app/" },
+            { title: "Spacebar Clicker", img: "spacebar_clicker_thumbnail.png", link: "https://spacebarclickpeaks.netlify.app/" }
         ];
-        
+
+        // Function to load games into the container
         function loadGames() {
             const container = document.getElementById('gameContainer');
-            container.innerHTML = "";
+            container.innerHTML = ""; // Clear the container
             games.forEach(game => {
                 const gameElement = document.createElement("a");
                 gameElement.href = game.link;
-                gameElement.target = "_blank";
-                gameElement.style.textDecoration = "none";
+                gameElement.target = "_blank"; // Open in new tab
+                gameElement.style.textDecoration = "none"; // Remove underline
                 gameElement.innerHTML = `
                     <div class="game">
                         <img src="${game.img}" alt="${game.title}">
@@ -40,10 +143,11 @@
             });
         }
 
+        // Function to filter games based on search input
         function filterGames() {
             const query = document.getElementById("search").value.toLowerCase();
             const filtered = games.filter(game => game.title.toLowerCase().includes(query));
-            document.getElementById("gameContainer").innerHTML = "";
+            document.getElementById("gameContainer").innerHTML = ""; // Clear the container
             filtered.forEach(game => {
                 const gameElement = document.createElement("a");
                 gameElement.href = game.link;
@@ -58,7 +162,8 @@
                 document.getElementById("gameContainer").appendChild(gameElement);
             });
         }
-        
+
+        // Load games when the page loads
         loadGames();
     </script>
 </body>
