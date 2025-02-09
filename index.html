@@ -3,101 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invention Timeline</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Game Hub</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000, #FF0000, #FFD700);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite;
+        }
+        .header {
+            background: rgba(0, 123, 255, 0.9);
+            color: #fff;
+            padding: 25px 0;
+            width: 100%;
+            text-align: center;
+            font-size: 36px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        #search {
+            margin: 30px 0;
+            padding: 15px;
+            width: 60%;
+            font-size: 18px;
+            border: 2px solid #ff7a00;
+            border-radius: 12px;
+            background-color: #444;
+            color: #fff;
+            transition: border 0.3s ease, background-color 0.3s ease;
+        }
+        #search:focus {
+            outline: none;
+            border-color: #ff7a00;
+            background-color: #333;
+        }
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            width: 80%;
+            overflow-y: auto;
+        }
+        .game {
+            background: #2c2c2c;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            color: #fff;
+        }
+        .game:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+        .game img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .game img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
+        }
+        .game-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            text-transform: uppercase;
+            color: #f4f4f4;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        .game-title:hover {
+            color: #ff7a00;
+        }
+        .game-title:active {
+            color: #ff00ff;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #search {
+                width: 80%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>Explore the Timeline of Inventions</h1>
-        <p>Select a year to discover important events and inventions.</p>
-        <select id="yearSelect">
-            <option value="">Select Year</option>
-        </select>
-        <div id="eventDetails">
-            <p id="event"></p>
-            <p id="details"></p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Invention Timeline | All rights reserved.</p>
-    </footer>
+    <div class="header">Game Hub</div>
+    <input type="text" id="search" placeholder="Search games..." oninput="filterGames()">
+    <div id="gameContainer" class="game-container"></div>
 
     <script>
-        // Yearly events object with relevant details
-        const events = {
-            1600: {
-                event: "First permanent English colony established at Jamestown, Virginia",
-                details: "A significant moment in the establishment of the American colonies."
-            },
-            1607: {
-                event: "The first successful permanent English settlement established at Jamestown",
-                details: "A key moment in American history."
-            },
-            1619: {
-                event: "Arrival of enslaved Africans in Virginia",
-                details: "A pivotal moment in American history concerning slavery."
-            },
-            1620: {
-                event: "Pilgrims establish Plymouth Colony",
-                details: "The beginning of one of the first successful European settlements in New England."
-            },
-            1912: {
-                event: "Sinking of the Titanic",
-                details: "A maritime disaster that underscores safety regulations."
-            },
-            2025: {
-                event: "Sustainable energy initiatives gain global momentum",
-                details: "Countries commit to significant reductions in carbon emissions."
-            },
-            // Add more years here...
-        };
+        const games = [
+            { title: "Perfect Circle", img: "https://via.placeholder.com/200x140/000000/FFFFFF?text=Perfect+Circle", link: "https://perfectcircle.netlify.app/" },
+            { title: "Spacebar Clicker", img: "spacebar_clicker_thumbnail.png", link: "https://spacebarclickpeaks.netlify.app/" }
+        ];
 
-        const briefExplanations = {
-            1619: "This year marks the start of a significant chapter in American history concerning slavery, with the arrival of enslaved Africans in Virginia.",
-            1670: "The 17th century was marked by European colonial expansion and the struggles for power among different nations.",
-            1877: "Reconstruction ends this year, marking a shift in racial and political dynamics in the South."
-        };
-
-        function populateYears() {
-            const yearSelect = document.getElementById('yearSelect');
-            for (let year = 1600; year <= 2025; year++) {
-                let option = document.createElement('option');
-                option.value = year;
-                option.textContent = year;
-                yearSelect.appendChild(option);
-            }
+        function loadGames() {
+            const container = document.getElementById('gameContainer');
+            container.innerHTML = "";
+            games.forEach(game => {
+                const gameElement = document.createElement("a");
+                gameElement.href = game.link;
+                gameElement.target = "_blank";
+                gameElement.style.textDecoration = "none";
+                gameElement.innerHTML = `
+                    <div class="game">
+                        <img src="${game.img}" alt="${game.title}">
+                        <div class="game-title">${game.title}</div>
+                    </div>
+                `;
+                container.appendChild(gameElement);
+            });
         }
 
-        function showEvent() {
-            const year = document.getElementById('yearSelect').value;
-            const eventDetails = document.getElementById('eventDetails');
-            const event = events[year];
-
-            if (event) {
-                eventDetails.innerHTML = `<p><strong>Event:</strong> ${event.event}</p><p><strong>Details:</strong> ${event.details}</p>`;
-            } else if (briefExplanations[year]) {
-                eventDetails.innerHTML = `<p><strong>Explanation:</strong> ${briefExplanations[year]}</p>`;
-            } else {
-                eventDetails.innerHTML = "<p>No data available for this year.</p>";
-            }
+        function filterGames() {
+            const query = document.getElementById("search").value.toLowerCase();
+            const filtered = games.filter(game => game.title.toLowerCase().includes(query));
+            const container = document.getElementById("gameContainer");
+            container.innerHTML = "";
+            filtered.forEach(game => {
+                const gameElement = document.createElement("a");
+                gameElement.href = game.link;
+                gameElement.target = "_blank";
+                gameElement.style.textDecoration = "none";
+                gameElement.innerHTML = `
+                    <div class="game">
+                        <img src="${game.img}" alt="${game.title}">
+                        <div class="game-title">${game.title}</div>
+                    </div>
+                `;
+                container.appendChild(gameElement);
+            });
         }
 
-        document.getElementById('yearSelect').addEventListener('change', showEvent);
-
-        // Call populateYears when the page loads
-        window.onload = populateYears;
+        loadGames();
     </script>
 </body>
 </html>
