@@ -120,13 +120,16 @@
     <div id="gameContainer" class="game-container"></div>
 
     <script>
+        // Game data
         const games = [
             { title: "Perfect Circle", img: "https://via.placeholder.com/200x140/000000/FFFFFF?text=Perfect+Circle", link: "https://perfectcircle.netlify.app/" },
             { title: "Spacebar Clicker", img: "spacebar_clicker_thumbnail.png", link: "https://spacebarclickpeaks.netlify.app/" },
             { title: "Spend Elon's Money", img: "https://via.placeholder.com/200x140/000000/FFFFFF?text=Spend+Elon%27s+Money", link: "https://spendelonmusksmoney.netlify.app/" },
-            { title: "Asteroid Launcher", img: "https://via.placeholder.com/200x140/000000/FFFFFF?text=Asteroid+Launcher", link: "https://asteroidlauncherpeaks.netlify.app/" }
+            { title: "Asteroid Launcher", img: "https://via.placeholder.com/200x140/000000/FFFFFF?text=Asteroid+Launcher", link: "https://asteroidlauncherpeaks.netlify.app/" },
+            { title: "Settle The Debate", img: "https://via.placeholder.com/200x140/000000/FFFFFF?text=Settle+The+Debate", link: "https://settlethedebate.netlify.app/" } // Added Settle The Debate game
         ];
 
+        // Load games into the container
         function loadGames() {
             const container = document.getElementById('gameContainer');
             container.innerHTML = "";
@@ -145,6 +148,7 @@
             });
         }
 
+        // Filter games based on search query
         function filterGames() {
             const query = document.getElementById("search").value.toLowerCase();
             const filtered = games.filter(game => game.title.toLowerCase().includes(query));
@@ -165,6 +169,7 @@
             });
         }
 
+        // Initial load of games
         loadGames();
     </script>
 </body>
