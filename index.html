@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeaksAI Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">PeaksAI Games</div>
+        <input type="text" class="search-box" id="search" placeholder="Search games..." onkeyup="filterGames()">
+    </div>
+    <div class="game-container" id="gameContainer">
+        <!-- Games will be inserted dynamically -->
+    </div>
+    <script>
+        const games = [
+            { title: "Perfect Circle", img: "perfect_circle_thumbnail.png", link: "index(34).html" },
+            { title: "Spacebar Clicker", img: "spacebar_clicker_thumbnail.png", link: "spacebarclick(1).html" },
+            { title: "Stimulation Clicker", img: "stimulation_clicker_thumbnail.png", link: "https://stimulationclicker.netlify.app/" }
+        ];
+        
+        function loadGames() {
+            const container = document.getElementById('gameContainer');
+            container.innerHTML = "";
+            games.forEach(game => {
+                const gameElement = document.createElement("a");
+                gameElement.href = game.link;
+                gameElement.target = "_blank";
+                gameElement.style.textDecoration = "none";
+                gameElement.innerHTML = `
+                    <div class="game">
+                        <img src="${game.img}" alt="${game.title}">
+                        <div class="game-title">${game.title}</div>
+                    </div>
+                `;
+                container.appendChild(gameElement);
+            });
+        }
+
+        function filterGames() {
+            const query = document.getElementById("search").value.toLowerCase();
+            const filtered = games.filter(game => game.title.toLowerCase().includes(query));
+            document.getElementById("gameContainer").innerHTML = "";
+            filtered.forEach(game => {
+                const gameElement = document.createElement("a");
+                gameElement.href = game.link;
+                gameElement.target = "_blank";
+                gameElement.style.textDecoration = "none";
+                gameElement.innerHTML = `
+                    <div class="game">
+                        <img src="${game.img}" alt="${game.title}">
+                        <div class="game-title">${game.title}</div>
+                    </div>
+                `;
+                document.getElementById("gameContainer").appendChild(gameElement);
+            });
+        }
+        
+        loadGames();
+    </script>
+</body>
+</html>
