@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invention Timeline</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Explore the Timeline of Inventions</h1>
+        <p>Select a year to discover important events and inventions.</p>
+        <select id="yearSelect">
+            <option value="">Select Year</option>
+        </select>
+        <div id="eventDetails">
+            <p id="event"></p>
+            <p id="details"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Invention Timeline | All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Yearly events object with relevant details
+        const events = {
+            1600: {
+                event: "First permanent English colony established at Jamestown, Virginia",
+                details: "A significant moment in the establishment of the American colonies."
+            },
+            1607: {
+                event: "The first successful permanent English settlement established at Jamestown",
+                details: "A key moment in American history."
+            },
+            1619: {
+                event: "Arrival of enslaved Africans in Virginia",
+                details: "A pivotal moment in American history concerning slavery."
+            },
+            1620: {
+                event: "Pilgrims establish Plymouth Colony",
+                details: "The beginning of one of the first successful European settlements in New England."
+            },
+            1912: {
+                event: "Sinking of the Titanic",
+                details: "A maritime disaster that underscores safety regulations."
+            },
+            2025: {
+                event: "Sustainable energy initiatives gain global momentum",
+                details: "Countries commit to significant reductions in carbon emissions."
+            },
+            // Add more years here...
+        };
+
+        const briefExplanations = {
+            1619: "This year marks the start of a significant chapter in American history concerning slavery, with the arrival of enslaved Africans in Virginia.",
+            1670: "The 17th century was marked by European colonial expansion and the struggles for power among different nations.",
+            1877: "Reconstruction ends this year, marking a shift in racial and political dynamics in the South."
+        };
+
+        function populateYears() {
+            const yearSelect = document.getElementById('yearSelect');
+            for (let year = 1600; year <= 2025; year++) {
+                let option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearSelect.appendChild(option);
+            }
+        }
+
+        function showEvent() {
+            const year = document.getElementById('yearSelect').value;
+            const eventDetails = document.getElementById('eventDetails');
+            const event = events[year];
+
+            if (event) {
+                eventDetails.innerHTML = `<p><strong>Event:</strong> ${event.event}</p><p><strong>Details:</strong> ${event.details}</p>`;
+            } else if (briefExplanations[year]) {
+                eventDetails.innerHTML = `<p><strong>Explanation:</strong> ${briefExplanations[year]}</p>`;
+            } else {
+                eventDetails.innerHTML = "<p>No data available for this year.</p>";
+            }
+        }
+
+        document.getElementById('yearSelect').addEventListener('change', showEvent);
+
+        // Call populateYears when the page loads
+        window.onload = populateYears;
+    </script>
+</body>
+</html>
