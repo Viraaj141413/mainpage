@@ -16,12 +16,11 @@
             flex-direction: column;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #000000, #FF0000, #FFD700);
-            background-size: 400% 400%;
-            animation: gradientAnimation 8s ease infinite;
+            background: url('https://source.unsplash.com/1600x900/?neon,arcade,retro,gaming') no-repeat center center fixed;
+            background-size: cover;
         }
         .header {
-            background: rgba(0, 123, 255, 0.9);
+            background: linear-gradient(90deg, #ff7a00, #ff4500, #ff007f);
             color: #fff;
             padding: 25px 0;
             width: 100%;
@@ -38,7 +37,7 @@
             font-size: 18px;
             border: 2px solid #ff7a00;
             border-radius: 12px;
-            background-color: #444;
+            background-color: #222;
             color: #fff;
             transition: border 0.3s ease, background-color 0.3s ease;
         }
@@ -49,4 +48,62 @@
         }
         .game-container {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 80%;
+            max-width: 1000px;
+            padding: 20px;
+            text-align: center;
+        }
+        .game {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 12px;
+            border: 3px solid #ff7a00;
+            transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .game:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.8);
+            border-color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Game Hub</div>
     
+    <input type="text" id="search" placeholder="Search for a game..." onkeyup="searchGames()">
+
+    <div class="game-container" id="gameContainer">
+        <div class="game" onclick="openGame('https://lifestats.netlify.app/')">Life Stats</div>
+        <div class="game" onclick="openGame('https://thanksforsupporting.netlify.app/')">Thanks for Supporting</div>
+        <div class="game" onclick="openGame('https://asteroidlauncherpeaks.netlify.app/')">Asteroid Launcher Peaks</div>
+        <div class="game" onclick="openGame('https://spendelonmusksmoney.netlify.app/')">Spend Elon Musk's Money</div>
+        <div class="game" onclick="openGame('https://spacebarclickpeaks.netlify.app/')">Spacebar Click Peaks</div>
+        <div class="game" onclick="openGame('https://perfectcircle.netlify.app/')">Perfect Circle</div>
+    </div>
+
+    <script>
+        function openGame(url) {
+            window.open(url, "_blank");
+        }
+
+        function searchGames() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let games = document.getElementsByClassName("game");
+
+            for (let i = 0; i < games.length; i++) {
+                let gameName = games[i].innerText.toLowerCase();
+                if (gameName.includes(input)) {
+                    games[i].style.display = "block";
+                } else {
+                    games[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
