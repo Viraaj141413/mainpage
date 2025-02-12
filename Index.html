@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="Mves4LFpFo6NJDnwSgYHBGfDU2BHYQvC4DWGb5m3vAU" />
-    <title>Game Hub</title>
+    <title>Snake Peaks</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173805010039335" crossorigin="anonymous"></script>
     <style>
         body {
@@ -15,14 +15,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100vh;
-            background: url('https://source.unsplash.com/1600x900/?neon,arcade,retro,gaming') no-repeat center center fixed;
-            background-size: cover;
+            background-color: #121212;
         }
         .header {
             background: linear-gradient(90deg, #ff7a00, #ff4500, #ff007f);
             color: #fff;
-            padding: 25px 0;
+            padding: 20px 0;
             width: 100%;
             text-align: center;
             font-size: 36px;
@@ -30,21 +28,33 @@
             text-transform: uppercase;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-        #search {
-            margin: 30px 0;
-            padding: 15px;
-            width: 60%;
-            font-size: 18px;
-            border: 2px solid #ff7a00;
-            border-radius: 12px;
-            background-color: #222;
-            color: #fff;
-            transition: border 0.3s ease, background-color 0.3s ease;
+        nav {
+            width: 100%;
+            background: #333;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-        #search:focus {
-            outline: none;
-            border-color: #ff7a00;
-            background-color: #333;
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ff7a00;
+        }
+        .content {
+            margin: 20px;
+            text-align: center;
+            color: #fff;
+        }
+        #gameHubSection {
+            display: none;
         }
         .game-container {
             display: grid;
@@ -54,6 +64,7 @@
             max-width: 1000px;
             padding: 20px;
             text-align: center;
+            margin: 0 auto;
         }
         .game {
             background: rgba(0, 0, 0, 0.6);
@@ -70,39 +81,76 @@
             background: rgba(0, 0, 0, 0.8);
             border-color: #ff4500;
         }
+        #search {
+            margin: 30px 0;
+            padding: 15px;
+            width: 60%;
+            font-size: 18px;
+            border: 2px solid #ff7a00;
+            border-radius: 12px;
+            background-color: #222;
+            color: #fff;
+            transition: border 0.3s ease, background-color 0.3s ease;
+        }
+        #search:focus {
+            outline: none;
+            border-color: #ff4500;
+            background-color: #333;
+        }
     </style>
 </head>
 <body>
-    <div class="header">Game Hub</div>
-    
-    <input type="text" id="search" placeholder="Search for a game..." onkeyup="searchGames()">
+    <div class="header">Snake Peaks</div>
+    <nav>
+        <a href="#home" onclick="showSection('homeSection')">Home</a>
+        <a href="#about" onclick="showSection('aboutSection')">About</a>
+        <a href="#gameHub" onclick="showSection('gameHubSection')">Game Hub</a>
+    </nav>
 
-    <div class="game-container" id="gameContainer">
-        <div class="game" onclick="openGame('https://lifestats.netlify.app/')">Life Stats</div>
-        <div class="game" onclick="openGame('https://thanksforsupporting.netlify.app/')">Thanks for Supporting</div>
-        <div class="game" onclick="openGame('https://asteroidlauncherpeaks.netlify.app/')">Asteroid Launcher Peaks</div>
-        <div class="game" onclick="openGame('https://spendelonmusksmoney.netlify.app/')">Spend Elon Musk's Money</div>
-        <div class="game" onclick="openGame('https://spacebarclickpeaks.netlify.app/')">Spacebar Click Peaks</div>
-        <div class="game" onclick="openGame('https://perfectcircle.netlify.app/')">Perfect Circle</div>
+    <div class="content" id="homeSection">
+        <h1>Welcome to Snake Peaks</h1>
+        <p>Your one-stop destination for games and more!</p>
+    </div>
+
+    <div class="content" id="aboutSection" style="display: none;">
+        <h1>About Snake Peaks</h1>
+        <p>Snake Peaks is a platform to explore, play, and share amazing games.</p>
+    </div>
+
+    <div class="content" id="gameHubSection" style="display: none;">
+        <h1>Game Hub</h1>
+        <input type="text" id="search" placeholder="Search for a game..." onkeyup="searchGames()">
+        <div class="game-container" id="gameContainer">
+            <div class="game" onclick="openGame('https://lifestats.netlify.app/')">Life Stats</div>
+            <div class="game" onclick="openGame('https://thanksforsupporting.netlify.app/')">Thanks for Supporting</div>
+            <div class="game" onclick="openGame('https://asteroidlauncherpeaks.netlify.app/')">Asteroid Launcher Peaks</div>
+            <div class="game" onclick="openGame('https://spendelonmusksmoney.netlify.app/')">Spend Elon Musk's Money</div>
+            <div class="game" onclick="openGame('https://spacebarclickpeaks.netlify.app/')">Spacebar Click Peaks</div>
+            <div class="game" onclick="openGame('https://perfectcircle.netlify.app/')">Perfect Circle</div>
+        </div>
     </div>
 
     <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
         function openGame(url) {
             window.open(url, "_blank");
         }
 
         function searchGames() {
-            let input = document.getElementById("search").value.toLowerCase();
-            let games = document.getElementsByClassName("game");
+            const input = document.getElementById("search").value.toLowerCase();
+            const games = document.querySelectorAll(".game");
 
-            for (let i = 0; i < games.length; i++) {
-                let gameName = games[i].innerText.toLowerCase();
-                if (gameName.includes(input)) {
-                    games[i].style.display = "block";
-                } else {
-                    games[i].style.display = "none";
-                }
-            }
+            games.forEach(game => {
+                const gameName = game.innerText.toLowerCase();
+                game.style.display = gameName.includes(input) ? 'block' : 'none';
+            });
         }
     </script>
 </body>
