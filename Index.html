@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="Mves4LFpFo6NJDnwSgYHBGfDU2BHYQvC4DWGb5m3vAU" />
-    <title>Game Hub</title>
+    <meta name="description" content="Play the best free peaks games online at Peaks Game Hub! Discover exciting peaks game collections, challenges, and fun experiences. Start playing now!">
+    <meta name="keywords" content="peaks, game, play games, online games, fun games, best games">
+    <title>Peaks Game Hub - Play Free Peaks Games and Fun Online Challenges</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173805010039335" crossorigin="anonymous"></script>
     <style>
         /* Background with a live gradient animation */
@@ -62,7 +64,7 @@
 
         .game-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Automatic columns based on screen size */
             gap: 20px;
             width: 80%;
             max-width: 1000px;
@@ -86,22 +88,62 @@
             background: rgba(0, 0, 0, 0.8);
             border-color: #ff4500;
         }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 28px;
+                padding: 20px 0;
+            }
+
+            #search {
+                width: 80%;
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .game-container {
+                width: 95%;
+                padding: 10px;
+            }
+
+            .game {
+                font-size: 18px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 24px;
+            }
+
+            #search {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .game {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="header">Game Hub</div>
+    <div class="header">Peaks Game Hub</div>
     
-    <input type="text" id="search" placeholder="Search for a game..." onkeyup="searchGames()">
+    <input type="text" id="search" placeholder="Search for peaks games..." onkeyup="searchGames()">
 
     <div class="game-container" id="gameContainer">
         <div class="game" onclick="openGame('https://paperfoldpeaks.netlify.app/')">Paper Fold Peaks</div>
-        <div class="game" onclick="openGame('https://lifestats.netlify.app/')">Life Stats</div>
-        <div class="game" onclick="openGame('https://thanksforsupporting.netlify.app/')">Thanks for Supporting</div>
+        <div class="game" onclick="openGame('https://lifestats.netlify.app/')">Life Stats Game</div>
+        <div class="game" onclick="openGame('https://thanksforsupporting.netlify.app/')">Thanks for Supporting Game</div>
         <div class="game" onclick="openGame('https://asteroidlauncherpeaks.netlify.app/')">Asteroid Launcher Peaks</div>
-        <div class="game" onclick="openGame('https://spendelonmusksmoney.netlify.app/')">Spend Elon Musk's Money</div>
+        <div class="game" onclick="openGame('https://spendelonmusksmoney.netlify.app/')">Spend Elon Musk's Money Game</div>
         <div class="game" onclick="openGame('https://spacebarclickpeaks.netlify.app/')">Spacebar Click Peaks</div>
-        <div class="game" onclick="openGame('https://perfectcircle.netlify.app/')">Perfect Circle</div>
-        <div class="game" onclick="openGame('https://taketheworlddown.netlify.app/')">Take the World Down</div> <!-- New Game Added -->
+        <div class="game" onclick="openGame('https://perfectcircle.netlify.app/')">Perfect Circle Game</div>
+        <div class="game" onclick="openGame('https://taketheworlddown.netlify.app/')">Take the World Down Peaks</div>
     </div>
 
     <script>
@@ -122,6 +164,34 @@
                 }
             }
         }
+
+        // Enhanced mobile interaction
+        document.querySelectorAll('.game').forEach((game) => {
+            game.addEventListener('touchstart', () => {
+                game.style.transform = "scale(1.1)";
+                game.style.background = "rgba(0, 0, 0, 0.8)";
+                game.style.borderColor = "#ff4500";
+            });
+
+            game.addEventListener('touchend', () => {
+                game.style.transform = "scale(1)";
+                game.style.background = "rgba(0, 0, 0, 0.6)";
+                game.style.borderColor = "#ff7a00";
+            });
+
+            // Desktop interaction as fallback
+            game.addEventListener('mouseover', () => {
+                game.style.transform = "scale(1.1)";
+                game.style.background = "rgba(0, 0, 0, 0.8)";
+                game.style.borderColor = "#ff4500";
+            });
+
+            game.addEventListener('mouseout', () => {
+                game.style.transform = "scale(1)";
+                game.style.background = "rgba(0, 0, 0, 0.6)";
+                game.style.borderColor = "#ff7a00";
+            });
+        });
     </script>
 </body>
 </html>
