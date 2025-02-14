@@ -1,8 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="Mves4LFpFo6NJDnwSgYHBGfDU2BHYQvC4DWGb5m3vAU" />
-    <meta name="description" content="Play free games online at Peaks.fun! Fun, fast, and exciting games for everyone.">
+    <meta name="description" content="nice games that are free and weird nad fun they are interactive aka spacebar clicker,perfrct circle,planets its fun">
     <meta name="keywords" content="peaks, game, play games, online games, fun games, best games, perfect circle, spacebar clicker, free, games to play, games unblocked, free games, fun games">
     <title>Peaks.fun Play Free with games like spacebarclicker,perfect circle,universe and more play!</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173805010039335" crossorigin="anonymous"></script>
@@ -128,3 +130,69 @@
         }
     </style>
 </head>
+<body>
+    <div class="header">Peaks Game Hub</div>
+    
+    <input type="text" id="search" placeholder="Search for peaks games..." onkeyup="searchGames()">
+
+    <div class="game-container" id="gameContainer">
+        <div class="game" onclick="openGame('https://paperfoldpeaks.netlify.app/')">Paper Fold Peaks</div>
+        <div class="game" onclick="openGame('https://lifestats.netlify.app/')">Life Stats Game</div>
+        <div class="game" onclick="openGame('https://asteroidlauncherpeaks.netlify.app/')">Asteroid Launcher Peaks</div>
+        <div class="game" onclick="openGame('https://spendelonmusksmoney.netlify.app/')">Spend Elon Musk's Money Game</div>
+        <div class="game" onclick="openGame('https://spacebarclickpeaks.netlify.app/')">Spacebar Click Peaks</div>
+        <div class="game" onclick="openGame('https://perfectcircle.netlify.app/')">Perfect Circle Game</div>
+        <div class="game" onclick="openGame('https://taketheworlddown.netlify.app/')">Take the World Down Peaks</div>
+        <div class="game" onclick="openGame('https://speedtraveledpersecond.netlify.app/')">Speed Traveled Per Second</div>
+        <div class="game" onclick="openGame('https://worldproblemspersecond.netlify.app/')">World Problems Per Second</div> <!-- New Game Added -->
+    </div>
+
+    <script>
+        function openGame(url) {
+            window.open(url, "_blank");
+        }
+
+        function searchGames() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let games = document.getElementsByClassName("game");
+
+            for (let i = 0; i < games.length; i++) {
+                let gameName = games[i].innerText.toLowerCase();
+                if (gameName.includes(input)) {
+                    games[i].style.display = "block";
+                } else {
+                    games[i].style.display = "none";
+                }
+            }
+        }
+
+        // Enhanced mobile interaction
+        document.querySelectorAll('.game').forEach((game) => {
+            game.addEventListener('touchstart', () => {
+                game.style.transform = "scale(1.1)";
+                game.style.background = "rgba(0, 0, 0, 0.8)";
+                game.style.borderColor = "#ff4500";
+            });
+
+            game.addEventListener('touchend', () => {
+                game.style.transform = "scale(1)";
+                game.style.background = "rgba(0, 0, 0, 0.6)";
+                game.style.borderColor = "#ff7a00";
+            });
+
+            // Desktop interaction as fallback
+            game.addEventListener('mouseover', () => {
+                game.style.transform = "scale(1.1)";
+                game.style.background = "rgba(0, 0, 0, 0.8)";
+                game.style.borderColor = "#ff4500";
+            });
+
+            game.addEventListener('mouseout', () => {
+                game.style.transform = "scale(1)";
+                game.style.background = "rgba(0, 0, 0, 0.6)";
+                game.style.borderColor = "#ff7a00";
+            });
+        });
+    </script>
+</body>
+</html>
