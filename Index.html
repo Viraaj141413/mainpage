@@ -4,36 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="Mves4LFpFo6NJDnwSgYHBGfDU2BHYQvC4DWGb5m3vAU" />
-    <meta name="description" content="nice games that are free and weird nad fun they are interactive aka spacebar clicker,perfrct circle,planets its fun">
-    <meta name="keywords" content="peaks, game, play games, online games, fun games, best games, perfect circle, spacebar clicker, free, games to play, games unblocked, free games, fun games">
-    <title>Peaks.fun Play Free with games like spacebarclicker,perfect circle,universe and more play!</title>
+    <meta name="description" content="Peaks.fun offers a collection of interactive, free, and fun games such as Spacebar Clicker, Perfect Circle, Asteroid Launcher, and more. Enjoy these addictive games online!">
+    <meta name="keywords" content="peaks, games, play games, interactive games, free games, online games, fun games, spacebar clicker, perfect circle, asteroid launcher, games unblocked">
+    <title>Peaks.fun - Play Free Games Like Spacebar Clicker, Perfect Circle & More!</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173805010039335" crossorigin="anonymous"></script>
     <style>
-        /* Background with a live gradient animation */
+        /* Modern, elegant gradient with smooth transitions */
         @keyframes gradientAnimation {
-            0% { background: linear-gradient(45deg, #ff7a00, #ff4500, #ff007f); }
-            25% { background: linear-gradient(45deg, #00bfff, #1e90ff, #87cefa); }
-            50% { background: linear-gradient(45deg, #8a2be2, #9370db, #dda0dd); }
-            75% { background: linear-gradient(45deg, #32cd32, #228b22, #008000); }
-            100% { background: linear-gradient(45deg, #ff7a00, #ff4500, #ff007f); }
+            0% { background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fad0c4); }
+            25% { background: linear-gradient(120deg, #a18cd1, #fbc2eb, #fbc2eb); }
+            50% { background: linear-gradient(120deg, #a1c4fd, #c2e9fb, #c2e9fb); }
+            75% { background: linear-gradient(120deg, #e0c3fc, #8ec5fc, #8ec5fc); }
+            100% { background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fad0c4); }
         }
 
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            color: #f0f0f0;
+            color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(45deg, #ff7a00, #ff4500, #ff007f);
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fad0c4);
             background-size: 400% 400%;
-            animation: gradientAnimation 10s ease infinite;
+            animation: gradientAnimation 15s ease infinite;
         }
 
         .header {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.8);
             color: #fff;
             padding: 25px 0;
             width: 100%;
@@ -41,7 +41,7 @@
             font-size: 36px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
         #search {
@@ -50,9 +50,10 @@
             width: 60%;
             font-size: 18px;
             border: 2px solid #ff7a00;
-            border-radius: 12px;
+            border-radius: 25px;
             background-color: #222;
             color: #fff;
+            text-align: center;
             transition: border 0.3s ease, background-color 0.3s ease;
         }
 
@@ -64,7 +65,7 @@
 
         .game-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Automatic columns based on screen size */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dynamic grid for different screen sizes */
             gap: 20px;
             width: 80%;
             max-width: 1000px;
@@ -73,14 +74,15 @@
         }
 
         .game {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 15px;
             border: 3px solid #ff7a00;
             transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
             font-size: 20px;
             font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .game:hover {
@@ -145,7 +147,6 @@
         <div class="game" onclick="openGame('https://taketheworlddown.netlify.app/')">Take the World Down Peaks</div>
         <div class="game" onclick="openGame('https://speedtraveledpersecond.netlify.app/')">Speed Traveled Per Second</div>
         <div class="game" onclick="openGame('https://worldproblemspersecond.netlify.app/')">World Problems Per Second</div> <!-- New Game Added -->
-        <!-- New Donation Game Added -->
         <div class="game" onclick="openGame('https://donatetoviraaj.netlify.app/')">Donate to Viraaj</div>
     </div>
 
@@ -178,7 +179,7 @@
 
             game.addEventListener('touchend', () => {
                 game.style.transform = "scale(1)";
-                game.style.background = "rgba(0, 0, 0, 0.6)";
+                game.style.background = "rgba(0, 0, 0, 0.7)";
                 game.style.borderColor = "#ff7a00";
             });
 
@@ -191,7 +192,7 @@
 
             game.addEventListener('mouseout', () => {
                 game.style.transform = "scale(1)";
-                game.style.background = "rgba(0, 0, 0, 0.6)";
+                game.style.background = "rgba(0, 0, 0, 0.7)";
                 game.style.borderColor = "#ff7a00";
             });
         });
