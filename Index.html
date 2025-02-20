@@ -9,7 +9,6 @@
     <title>Peaks.fun - Play Free Games Like Spacebar Clicker, Perfect Circle & More!</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173805010039335" crossorigin="anonymous"></script>
     <style>
-        /* Modern, elegant gradient with smooth transitions */
         @keyframes gradientAnimation {
             0% { background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fad0c4); }
             25% { background: linear-gradient(120deg, #a18cd1, #fbc2eb, #fbc2eb); }
@@ -65,7 +64,7 @@
 
         .game-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dynamic grid for different screen sizes */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             width: 80%;
             max-width: 1000px;
@@ -91,7 +90,6 @@
             border-color: #ff4500;
         }
 
-        /* Mobile Optimization */
         @media (max-width: 768px) {
             .header {
                 font-size: 28px;
@@ -138,6 +136,7 @@
     <input type="text" id="search" placeholder="Search for peaks games..." onkeyup="searchGames()">
 
     <div class="game-container" id="gameContainer">
+        <!-- List of Games -->
         <div class="game" onclick="openGame('https://paperfoldpeaks.netlify.app/')">Paper Fold Peaks</div>
         <div class="game" onclick="openGame('https://lifestats.netlify.app/')">Life Stats Game</div>
         <div class="game" onclick="openGame('https://asteroidlauncherpeaks.netlify.app/')">Asteroid Launcher Peaks</div>
@@ -148,7 +147,7 @@
         <div class="game" onclick="openGame('https://speedtraveledpersecond.netlify.app/')">Speed Traveled Per Second</div>
         <div class="game" onclick="openGame('https://worldproblemspersecond.netlify.app/')">World Problems Per Second</div>
         <div class="game" onclick="openGame('https://donatetoviraaj.netlify.app/')">Donate to Viraaj</div>
-        <div class="game" onclick="openGame('https://ronaldovsmessiwhoishim.netlify.app/')">Ronaldo vs Messi: Who is Him?</div> <!-- New Game Added -->
+        <div class="game" onclick="openGame('https://ronaldovsmessiwhoishim.netlify.app/')">Ronaldo vs Messi: Who is Him?</div>
     </div>
 
     <script>
@@ -169,34 +168,6 @@
                 }
             }
         }
-
-        // Enhanced mobile interaction
-        document.querySelectorAll('.game').forEach((game) => {
-            game.addEventListener('touchstart', () => {
-                game.style.transform = "scale(1.1)";
-                game.style.background = "rgba(0, 0, 0, 0.8)";
-                game.style.borderColor = "#ff4500";
-            });
-
-            game.addEventListener('touchend', () => {
-                game.style.transform = "scale(1)";
-                game.style.background = "rgba(0, 0, 0, 0.7)";
-                game.style.borderColor = "#ff7a00";
-            });
-
-            // Desktop interaction as fallback
-            game.addEventListener('mouseover', () => {
-                game.style.transform = "scale(1.1)";
-                game.style.background = "rgba(0, 0, 0, 0.8)";
-                game.style.borderColor = "#ff4500";
-            });
-
-            game.addEventListener('mouseout', () => {
-                game.style.transform = "scale(1)";
-                game.style.background = "rgba(0, 0, 0, 0.7)";
-                game.style.borderColor = "#ff7a00";
-            });
-        });
     </script>
 </body>
 </html>
