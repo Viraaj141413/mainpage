@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="PeaksAI Platform - Explore AI tools like PEAKSGPT, PEAKSIMG, and PEAKSWRITER" />
+    <meta name="description" content="PeaksDETECTER - Explore AI tools like PEAKSGPT, PEAKSIMG, and PEAKSWRITER" />
     <meta name="author" content="PeaksAI" />
     <meta name="keywords" content="AI, Tools, GPT, Image Generation, Writing, Technology, Innovation" />
-    <title>Peaks AI Platform</title>
+    <title>PeaksDETECTER</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -119,16 +119,38 @@
                 font-size: 48px;
             }
         }
+
+        /* Iframe Container */
+        .iframe-container {
+            width: 100%;
+            height: 600px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
 
-<div class="logo">PeaksAI</div>
+<div class="logo">PeaksDETECTER</div>
 
 <div class="nav">
     <button class="btn" onclick="openFrame('https://peaksaigg.created.app')">Open PEAKSGPT</button>
     <button class="btn" onclick="openFrame('https://peaksimgg.created.app')">Open PEAKSIMG</button>
     <button class="btn" onclick="openFrame('https://peakswriterai.created.app')">Open PEAKSWRITER</button>
+    <button class="btn" onclick="openframe('https://ai-text-detector-humanize-455.created.app')">Open PeaksDETECT</button>
+</div>
+
+<!-- Iframe container to hold the AI Text Detector -->
+<div id="iframeContainer" class="iframe-container">
+    <iframe id="iframe" src="" title="AI Text Detector & Humanizer"></iframe>
 </div>
 
 <div class="footer">© 2025 PeaksAI. All rights reserved.</div>
@@ -136,6 +158,19 @@
 <script>
     function openFrame(url) {
         window.open(url, '_blank'); // Opens in a new tab
+    }
+
+    function toggleIframe(url) {
+        var iframeContainer = document.getElementById('iframeContainer');
+        var iframe = document.getElementById('iframe');
+
+        if (iframeContainer.style.display === 'none' || iframeContainer.style.display === '') {
+            iframe.src = url;
+            iframeContainer.style.display = 'flex';
+        } else {
+            iframe.src = '';
+            iframeContainer.style.display = 'none';
+        }
     }
 </script>
 
