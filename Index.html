@@ -53,6 +53,8 @@
       flex-wrap: wrap;
       justify-content: center;
       margin-bottom: 20px;
+      z-index: 2;
+      position: relative;
     }
 
     .btn {
@@ -103,8 +105,10 @@
       display: block;
       width: 100%;
       max-width: 728px;
-      height: auto;
+      height: 90px;
       margin-top: 20px;
+      z-index: 1;
+      position: relative;
     }
 
     @media (max-width: 768px) {
@@ -114,6 +118,9 @@
       }
       .logo {
         font-size: 48px;
+      }
+      .adsbygoogle {
+        height: 50px;
       }
     }
   </style>
@@ -135,8 +142,8 @@
   <ins class="adsbygoogle"
        data-ad-client="ca-pub-6173805010039335"
        data-ad-slot="6497106102"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+       data-ad-format="horizontal"
+       data-full-width-responsive="false"></ins>
   <script>
     window.onload = () => {
       (adsbygoogle = window.adsbygoogle || []).push({});
