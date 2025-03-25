@@ -1,178 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="PeaksDETECTER - Explore AI tools like PEAKSGPT, PEAKSIMG, and PEAKSWRITER" />
-    <meta name="author" content="PeaksAI" />
-    <meta name="keywords" content="AI, Tools, GPT, Image Generation, Writing, Technology, Innovation" />
-    <title>PeaksDETECTER</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PeaksAI - Explore AI tools like PEAKSGPT, PEAKSIMG, PEAKSWRITER, and peaksDETECT" />
+  <meta name="author" content="PeaksAI" />
+  <meta name="keywords" content="AI, Tools, GPT, Image Generation, Writing, Technology, Innovation" />
+  <title>PeaksAI</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-        /* Background Animation */
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1e1e2f, #3c3c5e, #24243e);
-            background-size: 400% 400%;
-            animation: bgAnimation 10s ease infinite;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-            position: relative;
-        }
+    /* Background Animation */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1e1e2f, #3c3c5e, #24243e);
+      background-size: 400% 400%;
+      animation: bgAnimation 10s ease infinite;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      position: relative;
+    }
 
-        @keyframes bgAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        /* Logo and Animated Text */
-        .logo {
-            font-size: 64px;
-            font-weight: 600;
-            background: linear-gradient(90deg, #ff416c, #ff4b2b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeIn 1.5s ease;
-            margin-bottom: 20px;
-        }
+    /* Logo and Animated Text */
+    .logo {
+      font-size: 64px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1.5s ease;
+      margin-bottom: 20px;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        /* Buttons Container */
-        .nav {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 20px;
-            z-index: 10;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+    /* Buttons Container */
+    .nav {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 20px;
+      z-index: 10;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-        /* Button Style */
-        .btn {
-            padding: 18px 40px;
-            background: linear-gradient(145deg, #ff416c, #ff4b2b);
-            border: none;
-            color: #fff;
-            font-size: 20px;
-            font-weight: 600;
-            border-radius: 40px;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(255, 65, 108, 0.7);
-            transition: all 0.3s ease;
-            outline: none;
-            position: relative;
-            overflow: hidden;
-            perspective: 1000px;
-            transform-style: preserve-3d;
-        }
+    /* Button Style */
+    .btn {
+      padding: 18px 40px;
+      background: linear-gradient(145deg, #ff416c, #ff4b2b);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255, 65, 108, 0.7);
+      transition: all 0.3s ease;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+    }
 
-        .btn:hover {
-            transform: translateY(-4px) rotateX(10deg) rotateY(10deg);
-            box-shadow: 0 12px 25px rgba(255, 65, 108, 0.9);
-        }
+    .btn:hover {
+      transform: translateY(-4px) rotateX(10deg) rotateY(10deg);
+      box-shadow: 0 12px 25px rgba(255, 65, 108, 0.9);
+    }
 
-        .btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.3s ease;
-        }
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: left 0.3s ease;
+    }
 
-        .btn:hover::before {
-            left: 0;
-        }
+    .btn:hover::before {
+      left: 0;
+    }
 
-        /* Footer */
-        .footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 14px;
-            color: #bbb;
-        }
+    /* Footer */
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 14px;
+      color: #bbb;
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .btn {
-                font-size: 16px;
-                padding: 12px 24px;
-            }
-
-            .logo {
-                font-size: 48px;
-            }
-        }
-
-        /* Iframe Container */
-        .iframe-container {
-            width: 100%;
-            height: 600px;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+    /* Responsive */
+    @media (max-width: 768px) {
+      .btn {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+      .logo {
+        font-size: 48px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="logo">PeaksDETECTER</div>
+  <div class="logo">PeaksAI</div>
 
-<div class="nav">
+  <div class="nav">
     <button class="btn" onclick="openFrame('https://peaksaigg.created.app')">Open PEAKSGPT</button>
     <button class="btn" onclick="openFrame('https://peaksimgg.created.app')">Open PEAKSIMG</button>
     <button class="btn" onclick="openFrame('https://peakswriterai.created.app')">Open PEAKSWRITER</button>
-    <button class="btn" onclick="openframe('https://ai-text-detector-humanize-455.created.app')">Open PeaksDETECT</button>
-</div>
+    <button class="btn" onclick="openFrame('https://ai-text-detector-humanize-455.created.app')">peaksDETECT</button>
+  </div>
 
-<!-- Iframe container to hold the AI Text Detector -->
-<div id="iframeContainer" class="iframe-container">
-    <iframe id="iframe" src="" title="AI Text Detector & Humanizer"></iframe>
-</div>
+  <div class="footer">© 2025 PeaksAI. All rights reserved.</div>
 
-<div class="footer">© 2025 PeaksAI. All rights reserved.</div>
-
-<script>
+  <script>
     function openFrame(url) {
-        window.open(url, '_blank'); // Opens in a new tab
+      window.open(url, '_blank'); // Opens in a new tab
     }
-
-    function toggleIframe(url) {
-        var iframeContainer = document.getElementById('iframeContainer');
-        var iframe = document.getElementById('iframe');
-
-        if (iframeContainer.style.display === 'none' || iframeContainer.style.display === '') {
-            iframe.src = url;
-            iframeContainer.style.display = 'flex';
-        } else {
-            iframe.src = '';
-            iframeContainer.style.display = 'none';
-        }
-    }
-</script>
+  </script>
 
 </body>
 </html>
