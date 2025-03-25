@@ -10,11 +10,9 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-    /* Background Animation */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      overflow: hidden;
       background: linear-gradient(135deg, #1e1e2f, #3c3c5e, #24243e);
       background-size: 400% 400%;
       animation: bgAnimation 10s ease infinite;
@@ -22,11 +20,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       justify-content: center;
       padding: 20px;
       box-sizing: border-box;
-      position: relative;
     }
 
     @keyframes bgAnimation {
@@ -35,7 +32,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Logo and Animated Text */
     .logo {
       font-size: 64px;
       font-weight: 600;
@@ -51,38 +47,33 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Buttons Container */
     .nav {
       display: flex;
-      gap: 30px;
-      margin-bottom: 20px;
-      z-index: 10;
-      justify-content: center;
+      gap: 20px;
       flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
     }
 
-    /* Button Style */
     .btn {
-      padding: 18px 40px;
+      padding: 14px 32px;
       background: linear-gradient(145deg, #ff416c, #ff4b2b);
       border: none;
       color: #fff;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
       border-radius: 40px;
       cursor: pointer;
-      box-shadow: 0 6px 20px rgba(255, 65, 108, 0.7);
+      box-shadow: 0 4px 12px rgba(255, 65, 108, 0.7);
       transition: all 0.3s ease;
       outline: none;
       position: relative;
       overflow: hidden;
-      perspective: 1000px;
-      transform-style: preserve-3d;
     }
 
     .btn:hover {
-      transform: translateY(-4px) rotateX(10deg) rotateY(10deg);
-      box-shadow: 0 12px 25px rgba(255, 65, 108, 0.9);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(255, 65, 108, 0.9);
     }
 
     .btn::before {
@@ -100,24 +91,22 @@
       left: 0;
     }
 
-    /* Footer */
     .footer {
-      position: absolute;
-      bottom: 20px;
+      margin-top: auto;
       font-size: 14px;
       color: #bbb;
+      text-align: center;
+      padding: 10px;
     }
 
-    /* AdSense Container */
     .adsbygoogle {
       display: block;
-      width: 100%; /* Ensure the width is defined */
-      max-width: 728px; /* Prevent it from growing too large */
+      width: 100%;
+      max-width: 728px;
       height: auto;
       margin-top: 20px;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .btn {
         font-size: 16px;
@@ -158,7 +147,7 @@
 
   <script>
     function openFrame(url) {
-      window.open(url, '_blank'); // Opens in a new tab
+      window.open(url, '_blank');
     }
   </script>
 
